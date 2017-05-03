@@ -7,13 +7,11 @@ date: 2017-05-02
 # Grant Steinfeld - Curriculum vitae
 
 
-### Titles
-    Software Architect
-    Software Engineer
-    DevOps Engineer
+## Titles
+    Senior Software Architect and Engineer
 
 
-### Keywords
+### Skillset
     CouchDB, Redis, Neo4j, MSSQL, OracleDB, AllegroGraph 
     SQL SPARQL Cypher
     RabbitMQ, MSMQ, Weblogic, TibcoRV, IBM MQSeries
