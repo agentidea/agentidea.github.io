@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Grant Steinfeld Curriculum Vitae
+title: Grant Steinfeld Resume
 date: 2017-05-02
 ---
 
-# Grant Steinfeld - Curriculum vitae
+# Grant Steinfeld - Resume
 
 
 ## Senior Software Architect and Engineer
@@ -54,8 +54,8 @@ date: 2017-05-02
     Architected, created frameworks and assisted coding with Portfolio Navigator 
     and Rangal-Workbench, SPA browser client/server decision analysis tools
 
-    Deployed and supported production environments on-site as well as on Rackspace to multiple high profile clients: DOW Agroscience, 
-    Dupont Pioneer,
+    Deployed and supported production environments on-site as well as on Rackspace to multiple high profile clients:
+    DOW Agroscience, Dupont Pioneer,
     Teva, Cisco, Intel, Boeing and Chevron Texaco
 
 
