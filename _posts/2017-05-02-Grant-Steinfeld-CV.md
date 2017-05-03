@@ -11,22 +11,24 @@ date: 2017-05-02
 
 
 ### Skillset
+    Unix, Mac, Windows, Mainframe
     CouchDB, Redis, Neo4j, MSSQL, OracleDB, AllegroGraph 
     SQL, SPARQL, Cypher, GraphQL
     RabbitMQ, MSMQ, Weblogic, TibcoRV, IBM MQSeries
     JMS, AMQP, STOMP, MQTT
     Git, SVN, Pivotal Tracker, Agile, Test Driven Development  
     ECMA 6/7, JavaScript, TypeScript, Python, Erlang, Java, C#, PowerShell, LUA, Visual Basic, VBA
-    RPM, Ansible, Node/NPM, WebPack
+    Node/NPM, WebPack, RPM, Rebar
     Design and Enterprise Integration Patterns
     OTP, Flask, ASP.NET, AngularJS, Ionic, Webmachine
-    Jasmin, Lettuce, Nose, JUnit
-    Unix, Mac, Windows, Mainframe
-    Rackspace, AWS, Softlayer
+    Jasmin, Lettuce, Nose, NUnit
+    Ansible, Jenkins, TravisCI
+    Vagrant, VMWare, Hypervisor
+    AWS, Rackspace, Softlayer
+    Terminal, OMZSH, tmux, vim
     PyCharm/Webstorm, Visual Studio, Eclipse
     node-red, MaxMSP, Arduino/Processing, VDMX
-    Photoshop, Blender
-    Terminal, OMZSH, tmux, vim
+
 
 ### Employment History
 
