@@ -7,21 +7,20 @@ date: 2017-05-02
 # Grant Steinfeld - Curriculum vitae
 
 
-## Titles
-    Senior Software Architect and Engineer
+## Senior Software Architect and Engineer
 
 
 ### Skillset
     CouchDB, Redis, Neo4j, MSSQL, OracleDB, AllegroGraph 
-    SQL SPARQL Cypher
+    SQL, SPARQL, Cypher, GraphQL
     RabbitMQ, MSMQ, Weblogic, TibcoRV, IBM MQSeries
     JMS, AMQP, STOMP, MQTT
     Git, SVN, Pivotal Tracker, Agile, Test Driven Development  
-    ECMA 6/7, JavaScript, Python, Erlang, Java, C#, PowerShell, LUA, Visual Basic, VBA, TypeScript
+    ECMA 6/7, JavaScript, TypeScript, Python, Erlang, Java, C#, PowerShell, LUA, Visual Basic, VBA
     RPM, Ansible, Node/NPM, WebPack
     Design and Enterprise Integration Patterns
-    OTP, Flask, ASP.NET, AngularJS, Ionic 
-    Jasmin, Lettuce, Nose
+    OTP, Flask, ASP.NET, AngularJS, Ionic, Webmachine
+    Jasmin, Lettuce, Nose, JUnit
     Unix, Mac, Windows, Mainframe
     Rackspace, AWS, Softlayer
     PyCharm/Webstorm, Visual Studio, Eclipse
