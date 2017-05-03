@@ -51,23 +51,27 @@ date: 2017-05-02
     SmartOrg, Inc. [Menlo Park]
     Chief Software Architect
 
-    Architected, created frameworks and assisted coding with Portfolio Navigator and Workbench, browser based decision analysis tools
+    Architected, created frameworks and assisted coding with Portfolio Navigator 
+    and Rangal-Workbench, SPA browser client/server decision analysis tools
 
-    Deployed and supported production environments on-site as well as on Rackspace to DOW Agroscience, Dupont Pioneer, Teva, Cisco, Intel, Boeing and Chevron Texaco
+    Deployed and supported production environments on-site as well as on Rackspace to multiple high profile clients: DOW Agroscience, 
+    Dupont Pioneer,
+    Teva, Cisco, Intel, Boeing and Chevron Texaco
 
 
 #### January 2000 – January 2002 (2 years 1 month)
     Jefferies Execution Service / Helfant Group [New York]
     Technical Manager/Senior Architect
 
-    Managed and lead a team of six programmers, to create AgentTrader a Tibco RV FIX hub that even to this day, handles roughly 5% NYSE order routing
+    Managed and lead a team of six programmers, to create AgentTrader a Tibco RV FIX hub 
+    that even to this day, handles roughly 5% NYSE order routing
 
 
 #### January 1988 – January 2000 (12 years 1 month)
     Prudential Securities [New York]
     V.P. Futures and Options – Technology
 
-    Ported the futures and options portfolio trading system to the Web Based Boss 3000 using IBM MQSeries Message Queue and DCOM.
+    Ported the futures and options portfolio trading system to the Web Based Boss 3000 using IBM MQSeries and DCOM.
 
     Created research and document management tools, migrating Visual Basic tools to early ASP framework. 
 
@@ -76,9 +80,11 @@ date: 2017-05-02
     Square Earth [New York]
     Software Engineer
 
-    Developed Financial and Ecommerce internet applications development with Visual Basic ActiveX, IIS/ColdFusion and MSSQL
+    Developed Financial and Ecommerce internet applications.
+    Utilized Visual Basic ActiveX, IIS/ColdFusion and MSSQL
 
-    Website development by collaborating with Graphic Design firms, to create showcase sites for Bass Ale, Citibank, Plaid, OneStar, UPS
+    Website development by collaborating with Graphic Design firms,
+    to create showcase sites for Bass Ale, Citibank, Plaid, OneStar, UPS
 
 
 #### June 1995 – December 1996 (1 year 7 months)
@@ -87,13 +93,15 @@ date: 2017-05-02
 
     Member of a team that designed and implemented an ecommerce web site using IIS 1.0 IDC and MSSQL.
 
-    Responsible for setting up internet/TCP/IP stack for Windows 3.1 workstations, email and database servers, and 56k dedicated UUNET connection
+    Responsible for setting up internet/TCP/IP stack for Windows 3.1 workstations, email and database servers,
+    and 56k dedicated UUNET connection
 
 
 #### January 1995 – August 1995 (8 months)
     Webmaster Bergman Associates [New York]
     
-    Created along with Robert Bergman, an award winning graphic designer, a website for musician Ryuichi Sakamoto.
+    Created along with Robert Bergman, an award winning graphic designer, 
+    a website for musician Ryuichi Sakamoto.
 
     Managed SGI Multimedia server for Real Audio Server. 
 
@@ -108,5 +116,7 @@ date: 2017-05-02
 
 #### Education
     1988 - 1991 Bachelor of Science Physiotherapy, University of Cape Town, South Africa
-    
+
     1985 - 1987 Bachelor of Science Botany, University of Cape Town, South Africa
+
+
