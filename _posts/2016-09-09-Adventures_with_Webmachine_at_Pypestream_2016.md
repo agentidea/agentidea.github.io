@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Web frameworks - exploration
+title: Web frameworks - exploration at Pypestream Inc.
 date: 2016-09-09
 ---
 
-### At Pypestream last year we explored various Web frameworks for REST, Webmachine based on Erlang's Cowboy httpd, was one of the final candidates chosen to power their Public API 
+### On-site at a client, Pypestream, last year we explored various Web frameworks for REST, Webmachine based on Erlang's Cowboy httpd, was one of the final candidates chosen to power their Public API 
 
 ... here is the html of the Keynote
 
@@ -22,3 +22,4 @@ Basically Webmachine is the "Existential" framework!
 This book was a really a good resource which was used in preparation of this talk.
 
 Other framewors we considered:  HapiJS, Python Flask and Yaws
+We also considered using our very own [AgentIdea Web Framework](https://github.com/agentidea/AgentIdea-WebFramework)
