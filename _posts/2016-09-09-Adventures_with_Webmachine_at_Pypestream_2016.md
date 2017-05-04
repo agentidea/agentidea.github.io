@@ -17,7 +17,7 @@ Basically Webmachine is the "Existential" framework!
 -include_lib(" webmachine/ include/ webmachine.hrl").
 ```
 
-#### Moffitt, Jack; Daoud, Frederic (2013-12-31). Seven Web Frameworks in Seven Weeks: Adventures in Better Web Apps (Pragmatic Programmers) (p. 173). Pragmatic Bookshelf. Kindle Edition. 
+###### Moffitt, Jack; Daoud, Frederic (2013-12-31). Seven Web Frameworks in Seven Weeks: Adventures in Better Web Apps (Pragmatic Programmers) (p. 173). Pragmatic Bookshelf. Kindle Edition. 
 
 This book was a really a good resource which was used in preparation of this talk.
 
