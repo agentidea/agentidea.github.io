@@ -1,0 +1,190 @@
+---
+layout: post
+title: How To: Create a RPM to distribute file/script based applications on Enterprise Linux
+date: 2017-05-06
+---
+
+
+## Create a RPM package to install a script based application on Enterprise Linux
+
+We all have come to love the ease of using RPM or Yum to install packages on Enterprise Linux flavors like RedHat or CentOS. We can use this ability ourselves to creating an RPM to distribute files or scripts that may not require compilation. This post sets out how to go exactly about doing that.
+
+If however you want to compile source code into executable code then this tutorial is not for you and you should rather check out this documentation from Fedora.
+
+First and foremost you should have a CentOS 7 server setup. Login as your user account, in this example we will use the 'acme-company' user on our buildserver called dev-c7-buildserver
+
+FYI: Do not create RPM files as root
+
+Install rpm-build
+[acme-company@dev-c7-buildserver ~]$sudo yum install rpm-build
+
+git ( assuming the build server will checkout files from a git repository(ies) )
+
+[acme-company@dev-c7-buildserver ~]$sudo yum install git
+
+Now that we have setup the server we are ready to start creating a RPM.
+
+Once logged in decide where you would like to setup your build environment. In this case we will use the users home directory, /home/acme-company
+
+cd to your home directory,
+
+[acme-company@dev-c7-buildserver ~]$ cd
+
+create the directory where you would like the build root to be, for instance acmeBuild/RpmBuild
+
+[acme-company@dev-c7-buildserver ~]$ mkdir -p acmeBuild/RpmBuild
+
+[acme-company@dev-c7-buildserver RpmBuild]$ cd acmeBuild/RpmBuild
+
+[acme-company@dev-c7-buildserver RpmBuild]$pwd
+
+/home/acme-company/acmeBuild/RpmBuild
+
+Now you should create the directories that rpmbuild expects:
+
+[acme-company@dev-c7-buildserver RpmBuild]$mkdir BUILD RPMS SOURCES SPECS SRPMS
+
+Create .rpmmacros file
+Now that we have the basic directory structure setup we need to create a .rpmmacros file
+
+Why? Well rpmbuild operates in different parts of the filesystem. This might be more than we need, so in our case we can change that behavior by creating the .rpmmacros file.
+
+[acme-company@dev-c7-buildserver ~]$ cd
+
+[acme-company@dev-c7-buildserver ~]$ echo "%_topdir /home/acme-company/acmeBuild/RpmBuild" > /home/acme-company/.rpmmacros
+
+[acme-company@dev-c7-buildserver ~]$cat /home/acme-company/.rpmmacros
+
+%_topdir /home/acme-company/acmeBuild/RpmBuild
+
+Decide what files will be part of the RPM.
+In this tutorial we will assume that somewhere you have these someplace, for instance in say a directory /home/acme-company/acmeBuild/load/git-sources/MyRepo
+
+simply tar up the files for example
+
+[acme-company@dev-c7-buildserver ~]$ tar czf /home/acme-company/acmeBuild/RpmBuild/SOURCES/MyRepo.tar.gz /home/acme-company/acmeBuild/load/git-sources/MyRepo
+
+you should now have a tar file e.g. your code you want in the installation in the /home/acme-company/acmeBuild/RpmBuild/SOURCES folder
+
+great, so far so good!
+
+So now the next step is actually where all the magic happens!
+
+Create a spec file
+rpmbuild uses a spec file as a recipe as to what to do when making our RPM.
+
+The spec file contains information about the RPM's name, version, description, comments and even scripts that will help with automating the deployment, like creating user, changing file permissions and mostly anything you can do at the command line!
+
+The spec files needs to go into the SPECS directory.
+
+Lets name our spec file something meaningful for instance acme-company_acme-widget.spec for example would be used to make a RPM that will deploy our files and scripts for the html5/angularJS acme-widget application.
+
+[acme-company@dev-c7-buildserver ~]$ vim /home/acme-company/acmeBuild/RpmBuild/SPECS/acme-company_acme-widget.spec
+
+The anatomy of a spec file
+For example our spec file looks like this:
+
+
+Summary: acme-company acme-widget rpm
+Name: acme-company-acme-widget
+Version: 1
+Release: 1
+License: Commercial
+
+# BuildArch states the intented architecture; in this case we build a package for all.
+# if you copy binaries for a specific architecture please state it here
+BuildArch: noarch
+Group: Development/Tools
+
+# The name of our source tar.gz file is next, in our case
+# make sure this name is correct and that 
+# /home/acme-company/acmeBuild/RpmBuild/SOURCES/MyRepo.tar.gz exists
+# more than one source tar can be specified, but in this case we just have one
+#Source0 Source1 ... SourceN
+Source0: MyRepo.tar.gz
+
+# Optional dependancies
+# Yum/RPM
+# uncomment this line for example
+# Requires: perl > 7.0
+#if requirement not met this package be attempted to be installed
+
+# FILE(S)
+# this just checks if a folder structure is in place, if not install will fail
+# uncomment this line for example
+# Requires: /opt/acme/1.0.0
+
+# Here is the rpm description text
+%description
+This is a package that containes the files for acme-company's acme-widget. This RPM ensures that the correct files are placed on a targeted system.
+
+%prep
+# In the prep section is where you could, instead of the untar performed by %setup, do something
+# like "git clone" and maybe here you probably may want to de-git-ify the directories here rather than in the build process.
+# in this example we do nothing here
+
+
+%setup -q
+# setup is done in this section
+
+%build
+# Normally this part would be full of fancy compile stuff. Make this, make that.
+# We simple folks, we just want to copy some files out of a tar.gz.
+# so we pass this section with nothing done...
+
+%install
+# Installing happens here, normally using the “make install”
+# command, it normally places the files
+# where they need to go. You can also copy the files, as we do here...
+# in this example we just echo some interesting information
+echo "RPM_BUILD_ROOT: ${RPM_BUILD_ROOT}"
+echo "Build area:"
+find ${RPM_BUILD_ROOT} -type f -ls
+PWD=`pwd`
+echo "Source area ${PWD}:"
+
+
+# Here we for example want to make sure we start clean
+rm -rf /opt/acme/1.0.0/bin/acme-widget
+
+# Then we create the directories where the files go
+# don't worry if the directories exist on your target systems, rpm
+# creates them if necessary
+# ie essential it does a mkdir -p /opt/acme/1.0.0/bin/acme-widget
+
+# The actual moving of the files happens here
+mkdir -p $RPM_BUILD_ROOT/opt/acmetestinstall/1.0.0/bin/acme-widget
+cp -Rp /home/acme-company/acmeBuild/RpmBuild/SOURCES/acme-company-acme-widget-1/acme-widget $RPM_BUILD_ROOT/opt/acmetestinstall/1.0.0/bin/acme-widget
+
+#clean up the files as part of the rpmbuild process, not the install process 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+# The file section, it has to be exact, matching all files.
+# Here you have the power to implement all rights, even if
+# they are different in the tar.gz
+
+
+#default attribute setting for acme-company user applied to all paths below
+%defattr(-,acme-company,acme-company)
+/opt/acmetestinstall/1.0.0/bin/acme-widget
+
+
+# or this can be also set on a one by one basis specifally like this
+#%attr(0755,acme-company,acme-company) /opt/acmetestinstall/1.0.0/bin/*
+
+
+
+%changelog
+* Thu Mar 09 2017 Grant Steinfeld <gsteinfeld@acme-company.com> - 1-1
+Here is a dated comment that may contain useful information about the operation and uses of this software release.
+
+Once you have made the spec file you can go ahead and create the RPM
+
+
+
+[acme-company@dev-c7-buildserver ~]$ rpmbuild -v -bb /home/acme-company/acmeBuild/RpmBuild/SPECS/acme-company_acme-widget.spec
+
+rpmbuild has very verbose logs that say what it does. It will clearly indicate what goes wrong when and wether it cannot continue. Did it finish?  If so there you go, Files to go in a rpm package.
+
